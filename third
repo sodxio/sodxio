@@ -1,0 +1,42 @@
+#include"stdio.h" 
+void main()
+{
+	char ss[100],fm[100]={0};
+	int i,j,s=0,z=0,a[100]={0};
+	int jg=0;
+	printf("请输入计算题（不考虑优先级）\n");
+	gets(ss);
+	
+    for(i=0;ss[i]!='\0';i++)
+    if(ss[i]=='+'||ss[i]=='-'||ss[i]=='*'||ss[i]=='/')
+    fm[s++]=ss[i];
+
+   for(j=0;j<i;j++)
+    if(ss[j]>='0'&&ss[j]<='9')
+    jg=jg*10+(ss[j]-'0');
+    else 
+    {a[z++]=jg;
+    jg=0;}
+    a[z]=jg;
+    
+      
+	for(i=0;fm[i]!='\0';i++)
+	{
+	if(fm[i]=='+')
+	a[i+1]=a[i]+a[i+1];
+	if(fm[i]=='-')
+	a[i+1]=a[i]-a[i+1];
+	if(fm[i]=='*')
+	a[i+1]=a[i]*a[i+1];
+	if(fm[i]=='/')
+	a[i+1]=a[i]/a[i+1];
+	}
+	
+	printf("结果为:");
+	printf("%d   ",a[i]);
+	 
+	
+	
+	
+	return 0;
+}
