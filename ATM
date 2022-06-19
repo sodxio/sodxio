@@ -1,0 +1,167 @@
+#include<stdio.h>
+#include<stdlib.h>
+int language; 
+struct Account
+{
+	char name[100];
+	char idCard[19];
+	char tel[12];
+	char username[25];
+	char password[7];
+	float money;
+	struct Account * next;
+};
+typedef struct Account Account;
+
+Account * head=NULL;//指向头结点的指针
+Account * tail=NULL;
+void signUp()
+{
+	Account * newNodeP=(Account *)malloc(sizeof(Account));
+	if(language==1)
+	{
+		printf("输入姓名：\n");
+	}
+	else if(language==2)
+	{
+		printf("Input name:\n");
+	}
+	scanf("%s",newNodeP->name);
+	
+	if(language==1)
+	{
+		printf("输入身份证：\n");
+	}
+	else if(language==2)
+	{
+		printf("Input idCard:\n");
+	}
+	scanf("%s",newNodeP->idCard);
+	
+	if(language==1)
+	{
+		printf("输入电话：\n");
+	}
+	else if(language==2)
+	{
+		printf("Input tel:\n");
+	}
+	scanf("%s",newNodeP->tel);
+	
+	if(language==1)
+	{
+		printf("输入卡号：\n");
+	}
+	else if(language==2)
+	{
+		printf("Input username:\n");
+	}
+	scanf("%s",newNodeP->username);
+	
+	if(language==1)
+	{
+		printf("输入密码：\n");
+	}
+	else if(language==2)
+	{
+		printf("Input password:\n");
+	}
+	scanf("%s",newNodeP->password);
+	
+	newNodeP->money=0.0f;
+	newNodeP->next=NULL;
+	
+	//将结点添加到链表 
+	if(head==NULL)
+	{
+		head=newNodeP;
+		tail=newNodeP;
+	}
+	else
+	{
+		tail->next=newNodeP;
+		tail=newNodeP;
+	}
+	
+	if(language==1)
+	{
+		printf("添加成功！\n");
+	}
+	else if(language==2)
+	{
+		printf("added！\n");
+	}
+}
+
+void signIn()
+{
+	
+}
+void showMenuEnglish()
+{
+	printf("press1,signUp\n");
+	printf("press2,signIn\n");
+	int n;
+	scanf("%d",&n);
+	if(n==1)
+	{
+		signUp();
+	}
+	else if(n==2)
+	{
+		signIn();
+	}
+}
+
+void showMenuChinese()
+{
+	printf("按1,开户\n");
+	printf("按2,登陆\n");
+	printf("按3,退出\n");
+	int n;
+	scanf("%d",&n);
+	if(n==1)
+	{
+		signUp();
+	}
+	else if(n==2)
+	{
+		signIn();
+	}
+	else if(n==3);
+	{
+		return;
+	}
+}
+void printLinkedList()
+{
+	Account * curP=head;
+	while(curP!=NULL)
+	{
+		printf("%s %s\n",curP->name,curP->username);
+		curP=curP->next;
+	}
+}
+
+int main()
+{
+	printf("欢迎来到王者银行\n");
+	printf("Welcome to XXX ban\n");
+	
+	printf("按1，中文\n");
+	printf("按2，英文\n");
+	scanf("%d",&language);
+	if(language==1)
+	{
+		showMenuChinese();
+	}
+	else if(language==2)
+	{
+		showMenuEnglish();
+	}
+	
+	printLinkedList();
+	
+	
+	return 0;	
+}
