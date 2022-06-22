@@ -32,7 +32,7 @@ int main()
 enter();//进入界面 
 }
 //主函数结束
-void enter()//一级菜单函数
+void enter()//
 {
 int a;
 load();
