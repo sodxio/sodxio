@@ -29,10 +29,10 @@ int account;
 }user[NUM];
 int main()
 {
-enter();//进入界面 
+enter();
 }
 //主函数结束
-void enter()//
+void enter()
 {
 int a;
 load();
