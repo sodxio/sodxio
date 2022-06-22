@@ -52,7 +52,7 @@ system("color fc");
     scanf("%d",&a);
   switch(a)
 {
-case 1:system("cls");//清屏
+case 1:system("cls");
 shezhi();
 break;
     case 2:system("cls");
