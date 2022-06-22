@@ -117,7 +117,7 @@ system("pause");
 printf("\t\t\t\t按回车键返回上一级\n");
     printf("\n\n\n");
 system("cls");
-ch=getchar();//用来接收最后的回车符
+ch=getchar();
 if(ch=='\n')
 {
        enter();
